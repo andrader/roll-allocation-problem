@@ -2,7 +2,7 @@
 # Date: 2023-07-05
 
 
-def resolver(orders: list[int], rolls: list[int]):
+def solve_recursively(orders: list[int], rolls: list[int]):
     """
     Recursively solves the order allocation problem by finding the optimal way
     to fulfill the given orders using the available rolls.
@@ -23,9 +23,9 @@ def resolver(orders: list[int], rolls: list[int]):
         if roll_lenght >= order:
             remaining_rolls = rolls[:]
             remaining_rolls[i] = roll_lenght - order
-            res = resolver(orders[1:], remaining_rolls)
-            if isinstance(res, list):
-                return [i] + res
+            solve_remaining_orders = solve_recursively(orders[1:], remaining_rolls)
+            if isinstance(solve_remaining_orders, list):
+                return [i] + solve_remaining_orders
     return None
 
 
@@ -103,7 +103,7 @@ def main(orders=None, rolls=None):
         orders = input("Order of rolls\t>>> ").split()
     orders = [int(o) for o in orders]
 
-    allocated_rolls = resolver(orders, rolls)
+    allocated_rolls = solve_recursively(orders, rolls)
     leftovers = calculate_leftovers(allocated_rolls, orders, rolls)
 
     print(orders, rolls, allocated_rolls, leftovers)
