@@ -3,6 +3,21 @@
 
 
 def resolver(orders: list[int], rolls: list[int]):
+    """
+    Recursively solves the order allocation problem by finding the optimal way
+    to fulfill the given orders using the available rolls.
+
+    Args:
+        orders (list[int]): A list of order lengths.
+        rolls (list[int]): A list of available roll lengths.
+
+    Returns:
+        tuple: The indices of rolls allocated for each order if a solution is found,
+               otherwise False.
+
+    Credit:
+        The initial implementation of this function was authored by Rubens Andrade Filho.
+    """
     if len(orders) == 0:
         return []
 
@@ -20,6 +35,16 @@ def resolver(orders: list[int], rolls: list[int]):
 
 
 def print_resolver(orders: list[int], rolls: list[int]):
+    """
+    Prints the allocation solution for the given orders and rolls.
+
+    Args:
+        orders (list[int]): A list of order lengths.
+        rolls (list[int]): A list of available roll lengths.
+
+    Credit:
+        The initial implementation of this function was authored by Rubens Andrade Filho.
+    """
     print(f"There are {len(orders)} orders to be fulfilled:\n\t"
           + "\n\t".join([f"Order {i}: {o}" for i, o in enumerate(orders)]))
 
@@ -39,6 +64,10 @@ def print_resolver(orders: list[int], rolls: list[int]):
 
 
 def main():
+    """
+    Entry point of the program. Prompts the user for rolls in stock and order of rolls,
+    and calls the print_resolver function with the provided inputs.
+    """
     rolls = input("Rolls in stock\t>>> ")
     rolls = [int(r) for r in rolls.split()]
 
@@ -47,10 +76,13 @@ def main():
 
     print_resolver(orders, rolls)
 
+# Example usage
+# print("#" * 80)
+# print_resolver([50, 15, 30], [100])
+# print("#" * 80)
+# print_resolver([70, 90, 70], [100, 150])
+# print("#" * 80)
 
-print("#" * 80)
-print_resolver([50, 15, 30], [100])
-print("#" * 80)
-print_resolver([70, 90, 70], [100, 150])
-print("#" * 80)
-main()
+# Call the main function
+if __name__=="__main__":
+    main()
