@@ -8,12 +8,32 @@ The code demonstrates how to use recursion to find an optimal allocation of roll
 ## Table of Contents
 - [Roll Allocation Problem Solver](#roll-allocation-problem-solver)
   - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
   - [Problem Description](#problem-description)
   - [Solution](#solution)
-  - [Usage](#usage)
-  - [Example](#example)
+  - [Performance](#performance)
   - [Contributing](#contributing)
   - [License](#license)
+
+
+## Usage
+
+1. Ensure you have Python 3.x installed on your system.
+2. Clone the repository or download the code files.
+3. Open a terminal or command prompt and navigate to the directory containing the code files.
+4. Run the following command to execute the code:
+
+   ```shell
+   python main.py
+   ```
+
+5. The program will prompt you to enter the rolls in stock and the orders. Provide the rolls and orders as space-separated integers. For example:
+
+   ```shell
+   Rolls in stock   >>> 100 150
+   Order of rolls   >>> 70 90 70
+   ```
+    The program will display the optimal allocation of rolls for each order, as well as the remaining stock of rolls.
 
 
 ## Problem Description
@@ -65,46 +85,13 @@ Compared to other solutions, such as dynamic programming or linear programming a
 In summary, while the recursive algorithm used in the code provides a simple and understandable solution to the order allocation problem, other techniques like dynamic programming, linear programming, or heuristic algorithms may offer better performance or more accurate solutions, depending on the specific requirements and constraints of the problem.
 
 
-## Usage
+## Performance
 
-1. Ensure you have Python 3.x installed on your system.
-2. Clone the repository or download the code files.
-3. Open a terminal or command prompt and navigate to the directory containing the code files.
-4. Run the following command to execute the code:
+The recursive algorithm used in the code provides a straightforward solution to the order allocation problem. However, it may not be the most efficient solution in terms of runtime complexity.
 
-   ```shell
-   python main.py
-   ```
+The time complexity of the recursive algorithm is exponential, specifically O(2^n), where n is the number of orders. This is because the algorithm explores all possible combinations of roll allocations through recursion.
 
-5. The program will prompt you to enter the rolls in stock and the orders. Provide the rolls and orders as space-separated integers. For example:
-
-   ```shell
-   Rolls in stock   >>> 100 150
-   Order of rolls   >>> 70 90 70
-   ```
-
-    The program will display the optimal allocation of rolls for each order, as well as the remaining stock of rolls.
-
-## Example
-
-Here's an example usage of the code:
-
-```shell
-################################################################################
-There are 3 orders to be fulfilled:
-    Order 0: 50
-    Order 1: 15
-    Order 2: 30
-Optimal allocation to fulfill 3 orders:
-    Order 0: cut 50 m from roll 0
-    Order 1: cut 15 m from roll 0
-    Order 2: cut 30 m from roll 1
-Leftover rolls in stock:
-    Roll 0: 5 m
-    Roll 1: 120 m
-################################################################################
-
-```
+For small problem instances, this recursive approach should work reasonably well. However, as the number of orders increases, the runtime will grow rapidly. Therefore, for larger problem sizes, alternative approaches such as dynamic programming or linear programming should be considered for better performance.
 
 ## Contributing
 
